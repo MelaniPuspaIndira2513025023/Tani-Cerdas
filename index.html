@@ -253,8 +253,16 @@
     let userProfile = { name: "", phone: "" };
     let logCounter = 0;
 
-    window.onload = () => setTimeout(() => showScreen('screen-loading'), 0);
-    setTimeout(() => showScreen('screen-login'), 1500);
+    // Pastikan hanya ada satu fungsi yang mengatur alur masuk
+window.onload = () => {
+    // Tampilkan loading dulu
+    showScreen('screen-loading');
+    
+    // Setelah 2 detik, pindah ke login
+    setTimeout(() => {
+        showScreen('screen-login');
+    }, 2000);
+};
 
     function showScreen(id) {
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
